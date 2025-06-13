@@ -54,6 +54,7 @@ do
     fi
 done
 
+echo ""
 echo "***"
 echo "Sicherung der systemnahen Datenbanken abgeschlossen"
 echo "***"
