@@ -29,8 +29,8 @@ echo ""
 
 cp $DataDir/*.ntf $CopyDir/
 cp $DataDir/*.id $CopyDir/
-cp $DataDir/*.sid $CopyDir/
 
+echo "Sicherung von $NOTES_ADMIN_FILES "
 for db in $NOTES_ADMIN_FILES
 do
     if [ -e $DataDir/"$db" ]; then
