@@ -1,8 +1,14 @@
-CopyDir=/tmp/domino101_prebackup
-ProgramDir=/opt/domino/lotus
+#!/bin/bash
+
+VERS=$1
+
+CopyDir=/local/backup/$VERS
+ProgramDir=/opt/hcl/domino
 DataDir=/local/notesdata
-NSF_IND=$DataDir/nsf_files.ind
-NTF_IND=$DataDir/notesdata/ntf_files.ind
+NSF_IND=/local/backup/nsf_files.ind
+NTF_IND=/local/backup/ntf_files.ind
+
+NOTES_DESIGN_FILES="names.nsf admin4.nsf log.nsf mail.box ddm.nsf events4.nsf da.nsf statrep.nsf schema.nsf"
 
 CurrentUser=$(whoami)
 
@@ -18,15 +24,13 @@ echo "***"
 
 cd $DataDir
 
-$ProgramDir/bin/design -f names.nsf
-$ProgramDir/bin/design -f admin4.nsf
-$ProgramDir/bin/design -f log.nsf
-$ProgramDir/bin/design -f mail.box
-$ProgramDir/bin/design -f ddm.nsf
-$ProgramDir/bin/design -f events4.nsf
-$ProgramDir/bin/design -f da.nsf
-$ProgramDir/bin/design -f statrep.nsf
-$ProgramDir/bin/design -f schema.nsf
+
+for db in $NOTES_DESIGN_FILES
+do
+    if [ -e "$db" ]; then
+        $ProgramDir/bin/design -f $db
+    fi
+done
 
 sleep 30
 
