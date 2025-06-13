@@ -38,6 +38,7 @@ do
     fi
 done
 
+echo "Sicherung von $NOTES_CONFIG_FILES "
 for db in $NOTES_CONFIG_FILES
 do
     if [ -e $DataDir/"$db" ]; then
@@ -45,6 +46,7 @@ do
     fi
 done
 
+echo "Sicherung von $NOTES_MAIL_FILES "
 for db in $NOTES_MAIL_FILES
 do
     if [ -e $DataDir/"$db" ]; then
