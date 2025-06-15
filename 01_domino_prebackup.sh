@@ -29,6 +29,7 @@ echo ""
 
 cp $DataDir/*.ntf $CopyDir/
 cp $DataDir/*.id $CopyDir/
+cp $DataDir/*.ini $CopyDir/
 
 echo "Sicherung von $NOTES_ADMIN_FILES "
 for db in $NOTES_ADMIN_FILES
